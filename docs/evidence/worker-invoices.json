@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-05T01:01:57.414852+00:00",
+  "project": "/home/urho/dev/sdd/examples/invoices-worker",
+  "checks": {
+    "durable_enqueue": {
+      "status": "PASS",
+      "detail": "Enqueue process exited; a separate worker completed the persisted task"
+    },
+    "conflicting_key": {
+      "status": "PASS",
+      "detail": "Same idempotency key with different payload rejected"
+    },
+    "duplicate_delivery": {
+      "status": "PASS",
+      "detail": "Duplicates before and after completion produced one job and one business effect"
+    },
+    "transient_retry": {
+      "status": "PASS",
+      "detail": "Two transient failures followed by success; exactly three attempts and one effect"
+    },
+    "permanent_failure": {
+      "status": "PASS",
+      "detail": "Permanent error dead-lettered immediately without a business effect"
+    },
+    "retry_exhaustion": {
+      "status": "PASS",
+      "detail": "Transient failure stopped at the configured three-attempt budget"
+    },
+    "bounded_timeout": {
+      "status": "PASS",
+      "detail": "Two timed-out child attempts were killed/reaped; no late business effect"
+    },
+    "concurrent_workers": {
+      "status": "PASS",
+      "detail": "Two worker processes completed six jobs once each"
+    },
+    "lease_fencing": {
+      "status": "PASS",
+      "detail": "Expired owner rejected after reclaim; only the new token committed"
+    },
+    "crash_rolls_back_effect": {
+      "status": "PASS",
+      "detail": "Process exit between effect and ack rolled back the business write"
+    },
+    "expired_claim_recovers": {
+      "status": "PASS",
+      "detail": "A crashed claim owner was recovered after lease expiry, without dropping the job"
+    },
+    "graceful_shutdown": {
+      "status": "PASS",
+      "detail": "SIGTERM finished current work and left the next task pending"
+    },
+    "existing_tests": {
+      "status": "PASS",
+      "detail": "Ran 3 tests in 0.000s"
+    },
+    "cleanup": {
+      "status": "PASS",
+      "detail": "Workers reaped and temporary SQLite databases/journals removed"
+    }
+  }
+}

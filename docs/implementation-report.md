@@ -153,3 +153,20 @@ they cannot use the full-stack verifier as proof of unsupported configurations.
 Only instructions/documentation changed. Skill frontmatter validation, local
 resource links and Git whitespace checks passed; the unchanged runtime stack was
 not rerun for this documentation update. See the [options reference](../skills/monitoring-stack/references/options.md).
+
+## Follow-up: reliable-worker
+
+A second independent capability now covers durable jobs, bounded retry/timeout,
+transactional idempotency, lease fencing, recovery and graceful shutdown. It
+includes a Python/sqlite3 baseline and an invoice application adaptation that
+preserves the original domain API, synchronous CLI and three tests.
+
+Native baseline and adaptation each passed 14/14 independent checks. Both were
+also verified on Python 3.12 without networking or added packages. Deliberately
+removing fencing and execution timeout caused the expected check failures. The
+repository test suite now has 13 tests. See [worker adaptation and evidence](worker-adaptation.md).
+
+The SQLite reference adds no broker or library dependency and is not a production
+queue replacement. Exactly-once external side effects and multi-host operation
+are not claimed. A/B automation remains monitoring-specific; no performance
+superiority has been measured for either skill.

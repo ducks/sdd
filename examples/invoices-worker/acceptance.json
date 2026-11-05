@@ -1,0 +1,22 @@
+{
+  "payload": {
+    "invoice": {
+      "id": "INV-7",
+      "currency": "CZK",
+      "lines": [
+        {
+          "cents": 100
+        },
+        {
+          "cents": 205
+        }
+      ]
+    }
+  },
+  "result_table": "invoice_reports",
+  "expected_result": {
+    "invoice": "INV-7",
+    "currency": "CZK",
+    "total_cents": 305
+  }
+}

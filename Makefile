@@ -12,3 +12,13 @@ verify-example:
 
 controls:
 	python3 tests/runtime_controls.py --allow-exec
+
+.PHONY: verify-worker verify-worker-example worker-controls
+verify-worker:
+	python3 skills/reliable-worker/verify/run.py --project skills/reliable-worker/baseline --output runs/worker-baseline.json --allow-exec
+
+verify-worker-example:
+	python3 skills/reliable-worker/verify/run.py --project examples/invoices-worker --output runs/worker-invoices.json --allow-exec
+
+worker-controls:
+	python3 tests/worker_controls.py --allow-exec

@@ -47,3 +47,13 @@ agent performance improvement is made without that experiment.
 Prefer bounded route-template labels, seconds-based histograms, finite error
 classes, local-only published ports, and live query checks. Grafana's legacy
 API is version-pinned here; migrating to a newer major requires retesting.
+
+## Second capability: reliable-worker
+
+The same ordinary skill structure now packages a dependency-free local worker
+reference and an invoice-domain adaptation. Existing job frameworks already
+supply retries/acks/visibility; the skill tells agents to retain those and verify
+their semantics. SQLite is only the small runnable reference, not a new queue
+product or backend abstraction. Research references and the transaction boundary
+are recorded in the worker contract. The second capability adds no orchestration
+or skill dependency mechanism.

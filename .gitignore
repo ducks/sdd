@@ -3,3 +3,7 @@ __pycache__/
 .venv/
 .env
 runs/
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm

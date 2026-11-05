@@ -4,9 +4,14 @@ A small experiment in packaging an engineering capability as an ordinary
 [Agent Skill](https://agentskills.io/specification): knowledge, a working
 baseline, adaptation guidance and independent executable acceptance checks.
 
-The first capability is **monitoring-stack**: Prometheus, Grafana, a Python HTTP
-service and real checks that traffic produces queryable metrics. No agent
-runtime, model API or hosted service is required to use or verify it.
+Two independent capabilities are included:
+
+| Skill | Working reference | Verification |
+| --- | --- | --- |
+| [monitoring-stack](skills/monitoring-stack/SKILL.md) | Python HTTP service, Prometheus and Grafana | Real scrape/query checks and broken-stack controls |
+| [reliable-worker](skills/reliable-worker/SKILL.md) | Python/SQLite durable jobs with a process supervisor | Retry, duplicate, crash, timeout and shutdown checks |
+
+No agent runtime, model API or hosted service is required to use or verify either skill.
 
 This is a packaging practice, not a new skill specification. Ordinary skills
 already support scripts and assets. Scaffolding already produces working code.
@@ -15,7 +20,7 @@ with adaptation guidance helps agents integrate capabilities into existing apps.
 The same acronym also means Spec-Driven Development elsewhere; this project
 does not replace that methodology. See [research and architecture](docs/research.md).
 
-## Try the capability
+## Try monitoring-stack
 
 Requirements: Python 3.12+, Docker Engine, Docker Compose v2+, and authorized
 container execution. First image/package downloads need network access; deployed
@@ -55,9 +60,41 @@ The demo publishes only loopback ports. Do not expose it publicly without the
 application's appropriate authentication/network design. It uses ephemeral
 monitoring data; production storage and retention are separate decisions.
 
-## Load the skill
+## Try reliable-worker
 
-The portable unit is the complete `skills/monitoring-stack` directory, beginning
+Python 3.12+ standard library only; no Docker or broker needed:
+
+```sh
+make verify-worker
+make verify-worker-example
+make worker-controls
+```
+
+> Use the `reliable-worker` skill to make this job handler durable, bound retries
+> and execution time, preserve its existing architecture, and verify duplicate
+> delivery, worker crashes and graceful shutdown.
+
+The skill accepts ordinary task options such as `language: auto`, `queue: auto`,
+`storage: auto`, and `scope: full` or `handler`. Inspect/reuse existing workers
+before choosing the reference. The SQLite implementation is tested locally;
+other queues require appropriate adaptation and matching checks. It does not
+promise exactly-once external side effects.
+
+For a manual local example:
+
+```sh
+cd skills/reliable-worker/baseline
+python3 worker.py --db /tmp/sdd-worker-demo.sqlite enqueue --key demo-1 --payload '{"message":"hello"}'
+python3 worker.py --db /tmp/sdd-worker-demo.sqlite work --idle-exit 1
+```
+
+See [worker adaptation/results](docs/worker-adaptation.md) and the
+[worker contract](skills/reliable-worker/references/contract.md). The invoice
+example preserves the synchronous domain API/CLI while adding background jobs.
+
+## Load a skill
+
+The portable unit is one complete directory under `skills/`, beginning
 with SKILL.md. Copy or symlink that directory into your compatible agent's
 configured skill search path; installation paths differ between clients. No
 repository-specific agent config is necessary. An agent that can read files can
@@ -101,7 +138,7 @@ success. The baseline and demo passed real Prometheus/Grafana checks; see the
 ## Evaluate the idea
 
 [Evaluation protocol](evaluation/README.md) prepares clean A/B workspaces and
-scores completed implementations with the same external verifier and original
+scores completed monitoring implementations with the same external verifier and original
 tests. It does not invoke agents or integrate any provider. Agent time, tokens
 and tool calls remain unmeasured until actual paired runs are performed.
 Feasibility is demonstrated; a performance improvement is not established.
@@ -117,8 +154,8 @@ directory names are not a new schema; use what the capability actually needs.
 
 ## Scope
 
-This prototype supports disposable local Compose deployments and single-process
-Python HTTP services. It has no package registry, dependency resolver, agent
+This prototype supports disposable local monitoring deployments, single-process
+Python HTTP services and local SQLite-backed background jobs. It has no package registry, dependency resolver, agent
 orchestration, proprietary integration, Kubernetes, tracing, alert manager or
 production deployment controller. Go/Rust adapters, production worker models,
 streaming request semantics and broad framework support remain future work.
