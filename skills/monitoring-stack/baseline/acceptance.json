@@ -1,0 +1,8 @@
+{
+  "success_path": "/",
+  "error_path": "/fail",
+  "exception_path": "/boom",
+  "success_route": "/",
+  "error_route": "/fail",
+  "job": "application"
+}

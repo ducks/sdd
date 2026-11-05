@@ -1,0 +1,5 @@
+{
+  "python:3.12-alpine": "python:3.12-alpine@sha256:e6dae589c1c05976188fd3bd019afd091445fc533ed2ea29001beddc7368a9c8",
+  "prom/prometheus:v3.3.1": "prom/prometheus:v3.3.1@sha256:e2b8aa62b64855956e3ec1e18b4f9387fb6203174a4471936f4662f437f04405",
+  "grafana/grafana:12.0.2": "grafana/grafana:12.0.2@sha256:b5b59bfc7561634c2d7b136c4543d702ebcc94a3da477f21ff26f89ffd4214fa"
+}

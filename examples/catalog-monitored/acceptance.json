@@ -1,0 +1,8 @@
+{
+  "success_path": "/api/items/42",
+  "error_path": "/api/unavailable",
+  "exception_path": "/api/crash",
+  "success_route": "/api/items/<int:item_id>",
+  "error_route": "/api/unavailable",
+  "job": "application"
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-05T00:16:06.371589+00:00",
+  "project": "/tmp/sdd-control-ffzcum4k/baseline",
+  "compose_project": "sdd-d76182d9a9f7",
+  "checks": {
+    "compose_config": {
+      "status": "PASS",
+      "detail": "Compose parsed; all published ports use loopback"
+    },
+    "prometheus_config": {
+      "status": "PASS",
+      "detail": "Checking /etc/prometheus/prometheus.yml\n SUCCESS: /etc/prometheus/prometheus.yml is valid prometheus config file syntax\n\n"
+    },
+    "application_tests": {
+      "status": "PASS",
+      "detail": "Ran 1 test in 0.002s"
+    },
+    "application_starts": {
+      "status": "PASS",
+      "detail": "healthy"
+    },
+    "metrics_endpoint": {
+      "status": "PASS",
+      "detail": "HTTP exposition parsed by promtool; required counter/histogram families present"
+    },
+    "prometheus_target_up": {
+      "status": "PASS",
+      "detail": "Target up: http://app:8000/metrics"
+    },
+    "prometheus_queries": {
+      "status": "PASS",
+      "detail": "1.0"
+    },
+    "request_counter": {
+      "status": "FAIL",
+      "detail": "AssertionError: Condition not satisfied before timeout: Unexpected sample 0.0"
+    },
+    "error_counter": {
+      "status": "FAIL",
+      "detail": "AssertionError: Condition not satisfied before timeout: Unexpected sample 0.0"
+    },
+    "exception_counter": {
+      "status": "FAIL",
+      "detail": "AssertionError: Condition not satisfied before timeout: Unexpected sample 0.0"
+    },
+    "latency_histogram": {
+      "status": "PASS",
+      "detail": "Histogram count increased and bucket series are queryable"
+    },
+    "bounded_routes": {
+      "status": "PASS",
+      "detail": "Unknown paths collapse to __unmatched__"
+    },
+    "grafana_datasource": {
+      "status": "PASS",
+      "detail": "Provisioned Prometheus datasource health OK"
+    },
+    "grafana_queries_prometheus": {
+      "status": "PASS",
+      "detail": "True"
+    },
+    "dashboard": {
+      "status": "PASS",
+      "detail": "Dashboard provisioned; all panel expressions return finite series via Grafana"
+    },
+    "graceful_shutdown": {
+      "status": "PASS",
+      "detail": "SIGTERM exited 0 within 10 seconds"
+    },
+    "target_down_detected": {
+      "status": "PASS",
+      "detail": "Target down: http://app:8000/metrics"
+    },
+    "restart_recovers": {
+      "status": "FAIL",
+      "detail": "AssertionError: Condition not satisfied before timeout: Unexpected sample 0.0"
+    },
+    "cleanup": {
+      "status": "PASS",
+      "detail": "Owned containers, volumes, network and build image removed"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-05T00:15:30.235167+00:00",
+  "project": "/tmp/sdd-control-p1f8xog3/baseline",
+  "compose_project": "sdd-65dd6a6e9ced",
+  "checks": {
+    "compose_config": {
+      "status": "PASS",
+      "detail": "Compose parsed; all published ports use loopback"
+    },
+    "prometheus_config": {
+      "status": "PASS",
+      "detail": "Checking /etc/prometheus/prometheus.yml\n SUCCESS: /etc/prometheus/prometheus.yml is valid prometheus config file syntax\n\n"
+    },
+    "application_tests": {
+      "status": "PASS",
+      "detail": "Ran 1 test in 0.002s"
+    },
+    "application_starts": {
+      "status": "PASS",
+      "detail": "healthy"
+    },
+    "metrics_endpoint": {
+      "status": "PASS",
+      "detail": "HTTP exposition parsed by promtool; required counter/histogram families present"
+    },
+    "prometheus_target_up": {
+      "status": "FAIL",
+      "detail": "AssertionError: Condition not satisfied before timeout: Expected one up application target"
+    },
+    "prometheus_queries": {
+      "status": "FAIL",
+      "detail": "AssertionError: Condition not satisfied before timeout: Unexpected sample 0.0"
+    },
+    "request_counter": {
+      "status": "FAIL",
+      "detail": "AssertionError: Condition not satisfied before timeout: Expected one numeric series; found 0"
+    },
+    "error_counter": {
+      "status": "FAIL",
+      "detail": "AssertionError: Condition not satisfied before timeout: Expected one numeric series; found 0"
+    },
+    "exception_counter": {
+      "status": "FAIL",
+      "detail": "AssertionError: Condition not satisfied before timeout: Expected one numeric series; found 0"
+    },
+    "latency_histogram": {
+      "status": "FAIL",
+      "detail": "AssertionError: Condition not satisfied before timeout: Expected one numeric series; found 0"
+    },
+    "bounded_routes": {
+      "status": "FAIL",
+      "detail": "AssertionError: Condition not satisfied before timeout: Unmatched route not scraped yet"
+    },
+    "grafana_datasource": {
+      "status": "PASS",
+      "detail": "Provisioned Prometheus datasource health OK"
+    },
+    "grafana_queries_prometheus": {
+      "status": "FAIL",
+      "detail": "AssertionError: Target not up through Grafana"
+    },
+    "dashboard": {
+      "status": "FAIL",
+      "detail": "AssertionError: Condition not satisfied before timeout: Dashboard expression has no series: sum(rate(http_requests_total{job=\"application\"}[1m]))"
+    },
+    "graceful_shutdown": {
+      "status": "PASS",
+      "detail": "SIGTERM exited 0 within 10 seconds"
+    },
+    "target_down_detected": {
+      "status": "PASS",
+      "detail": "Target down: http://app:9/metrics"
+    },
+    "restart_recovers": {
+      "status": "FAIL",
+      "detail": "AssertionError: Condition not satisfied before timeout: Expected one up application target"
+    },
+    "cleanup": {
+      "status": "PASS",
+      "detail": "Owned containers, volumes, network and build image removed"
+    }
+  }
+}

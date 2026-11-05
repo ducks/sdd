@@ -1,0 +1,20 @@
+[
+  {
+    "fault": "broken-scrape",
+    "expected_failed_check": "prometheus_target_up",
+    "detected": true,
+    "report": "broken-scrape.json"
+  },
+  {
+    "fault": "frozen-counters",
+    "expected_failed_check": "request_counter",
+    "detected": true,
+    "report": "frozen-counters.json"
+  },
+  {
+    "fault": "broken-datasource",
+    "expected_failed_check": "grafana_datasource",
+    "detected": true,
+    "report": "broken-datasource.json"
+  }
+]

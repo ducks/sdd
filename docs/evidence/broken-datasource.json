@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-05T00:16:37.512891+00:00",
+  "project": "/tmp/sdd-control-bbhv4b5t/baseline",
+  "compose_project": "sdd-3e49695bd462",
+  "checks": {
+    "compose_config": {
+      "status": "PASS",
+      "detail": "Compose parsed; all published ports use loopback"
+    },
+    "prometheus_config": {
+      "status": "PASS",
+      "detail": "Checking /etc/prometheus/prometheus.yml\n SUCCESS: /etc/prometheus/prometheus.yml is valid prometheus config file syntax\n\n"
+    },
+    "application_tests": {
+      "status": "PASS",
+      "detail": "Ran 1 test in 0.002s"
+    },
+    "application_starts": {
+      "status": "PASS",
+      "detail": "healthy"
+    },
+    "metrics_endpoint": {
+      "status": "PASS",
+      "detail": "HTTP exposition parsed by promtool; required counter/histogram families present"
+    },
+    "prometheus_target_up": {
+      "status": "PASS",
+      "detail": "Target up: http://app:8000/metrics"
+    },
+    "prometheus_queries": {
+      "status": "PASS",
+      "detail": "1.0"
+    },
+    "request_counter": {
+      "status": "PASS",
+      "detail": "1.0 -> 4.0 after 3 HTTP 200 requests"
+    },
+    "error_counter": {
+      "status": "PASS",
+      "detail": "1.0 -> 4.0 after 3 HTTP 503 requests"
+    },
+    "exception_counter": {
+      "status": "PASS",
+      "detail": "5.0 -> 6.0 after synthetic exception"
+    },
+    "latency_histogram": {
+      "status": "PASS",
+      "detail": "Histogram count increased and bucket series are queryable"
+    },
+    "bounded_routes": {
+      "status": "PASS",
+      "detail": "Unknown paths collapse to __unmatched__"
+    },
+    "grafana_datasource": {
+      "status": "FAIL",
+      "detail": "AssertionError: Unexpected datasource configuration"
+    },
+    "grafana_queries_prometheus": {
+      "status": "FAIL",
+      "detail": "AssertionError: Expected HTTP 200, got 502"
+    },
+    "dashboard": {
+      "status": "FAIL",
+      "detail": "AssertionError: Condition not satisfied before timeout: Expected HTTP 200, got 502"
+    },
+    "graceful_shutdown": {
+      "status": "PASS",
+      "detail": "SIGTERM exited 0 within 10 seconds"
+    },
+    "target_down_detected": {
+      "status": "PASS",
+      "detail": "Target down: http://app:8000/metrics"
+    },
+    "restart_recovers": {
+      "status": "PASS",
+      "detail": "App and scraping recovered after restart"
+    },
+    "cleanup": {
+      "status": "PASS",
+      "detail": "Owned containers, volumes, network and build image removed"
+    }
+  }
+}
