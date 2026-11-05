@@ -82,7 +82,8 @@ cache are intentionally retained.
 
 [Control summary](evidence/summary.json) records all three detections. Source
 [SHA-256 inventory](evidence/source-sha256.json) records the delivered code and
-fixture files. Reports are snapshots, not assertions about another environment.
+fixture files at the initial implementation commit (`b561f6c`). Reports are
+snapshots, not assertions about another environment.
 
 These checks actually generated HTTP traffic, parsed metrics with promtool,
 queried changing samples in Prometheus, queried through Grafana, and confirmed
@@ -139,3 +140,16 @@ provided requirement and external oracle, with original tests protected. Record
 correctness first, then actual time, tool calls, tokens and manual corrections.
 Only expand to another framework/capability after this evidence shows where the
 baseline, adaptation guidance or verifier needs improvement.
+
+## Follow-up: task options
+
+The skill now accepts ordinary request inputs for language, metrics backend,
+dashboards, deployment and scope. `auto` values resolve from project inspection;
+explicit choices are preserved. The tested profile remains Python + Prometheus
++ Grafana + Compose. No backend plugin/parser or additional adapter was added.
+Instrumentation-only and alternative-stack choices need scoped executable checks;
+they cannot use the full-stack verifier as proof of unsupported configurations.
+
+Only instructions/documentation changed. Skill frontmatter validation, local
+resource links and Git whitespace checks passed; the unchanged runtime stack was
+not rerun for this documentation update. See the [options reference](../skills/monitoring-stack/references/options.md).

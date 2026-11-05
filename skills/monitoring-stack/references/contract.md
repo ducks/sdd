@@ -1,5 +1,25 @@
 # Monitoring acceptance contract
 
+## Stack-independent outcomes
+
+Use the resolved options to scope the integration. Preserve existing application
+behavior and tests. Request volume, failure classification and latency must be
+observable with bounded dimensions. Demonstrate that controlled traffic reaches
+the chosen collection backend and produces queryable changes. If dashboards
+are selected, verify their actual datasource and queries. Verify configuration,
+application health and appropriate failure/recovery behavior using executable
+checks. Never substitute configuration presence for runtime evidence.
+
+For instrumentation-only work, prove the application's output and original tests;
+collection/dashboard requirements remain outside that task's scope, not verified.
+For a dashboards-only task, query the existing backend and validate the dashboard;
+do not add instrumentation automatically. State the scoped contract explicitly.
+
+Changing a backend requires adapting the implementation and verifier. This is
+engineering work guided by a skill, not a promise of automatic backend support.
+
+## Bundled tested profile: Python / Prometheus / Grafana / Compose
+
 The reference vocabulary is deliberately small; existing integrations can retain
 their established names if the corresponding verifier queries are reviewed.
 

@@ -69,6 +69,24 @@ installers can distribute this layout when the repository is published.
 > `monitoring-stack` skill. Preserve the existing architecture, instrument
 > request latency and failures, and verify that Prometheus collects the metrics.
 
+The skill accepts ordinary task options; omitted values are resolved by inspecting
+the application. For example, include this in the request:
+
+```yaml
+language: auto
+metrics: prometheus
+dashboards: grafana
+deployment: compose
+scope: full
+```
+
+You can also request “instrumentation only, keep our existing collector, no
+Grafana.” This changes the adaptation scope; it does not install another stack.
+[Options and coverage](skills/monitoring-stack/references/options.md) explain
+resolution and tested configurations. Other backends/languages require suitable
+implementations and executable checks; selecting them does not make the supplied
+Prometheus/Grafana verifier generic.
+
 Load SKILL.md first, then only the applicable adapter/contract/implementation
 resources. Do not dump the whole baseline into context. Inspect existing
 monitoring first and extend it; do not duplicate a registry or stack. Adapt the
