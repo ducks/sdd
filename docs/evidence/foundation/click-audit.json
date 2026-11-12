@@ -1,0 +1,163 @@
+{
+  "capabilities": {
+    "agent_instructions": "RECOMMENDED",
+    "containers": "OPTIONAL",
+    "documentation": "REQUIRED",
+    "environment": "REQUIRED",
+    "makefile": "REQUIRED",
+    "registry_publication": "OPTIONAL",
+    "release_management": "REQUIRED",
+    "tests": "REQUIRED"
+  },
+  "checks": {
+    "build_runtime": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "changelog_version": {
+      "detail": "review release history/version policy manually",
+      "status": "UNKNOWN"
+    },
+    "check_failure_propagates": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "check_runtime": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "ci_interface": {
+      "detail": "CI should reuse make setup, make check, make build; native CI may be valid",
+      "status": "UNKNOWN"
+    },
+    "ci_targets": {
+      "detail": "unknown CI targets: ",
+      "status": "PASS"
+    },
+    "cleanup_boundary": {
+      "detail": "reject obvious cleanup outside owned generated paths",
+      "status": "PASS"
+    },
+    "cleanup_runtime": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "containers": {
+      "detail": "context dependent; do not add containers to satisfy this checker",
+      "status": "UNKNOWN"
+    },
+    "development_environment": {
+      "detail": "inspect setup/tool declarations",
+      "status": "UNKNOWN"
+    },
+    "documented_commands": {
+      "detail": "unknown documented targets: ",
+      "status": "PASS"
+    },
+    "help_runtime": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "lint_runtime": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "lock_consistency": {
+      "detail": "inspect dependency resolver and frozen install behavior",
+      "status": "UNKNOWN"
+    },
+    "makefile_contract": {
+      "detail": "missing targets: build, check, clean, format, help, lint, release, release-check, setup, test",
+      "status": "FAIL"
+    },
+    "nonempty_targets": {
+      "detail": "empty targets: ",
+      "status": "PASS"
+    },
+    "operational_readiness": {
+      "detail": "CLI failure behavior or service health, shutdown and recovery require review",
+      "status": "UNKNOWN"
+    },
+    "publication_boundary": {
+      "detail": "indirect scripts need review; no publication executed",
+      "status": "UNKNOWN"
+    },
+    "release_artifact": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "release_invalid_state": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "release_strategy": {
+      "detail": "requires review of version, source, artifact, publication and recovery semantics",
+      "status": "UNKNOWN"
+    },
+    "setup_runtime": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "test_failure_propagates": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "tests_execute": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "undeclared_tools": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "version_source": {
+      "detail": "python authoritative version: 8.6.0.dev; workspace/dynamic versions need review",
+      "status": "PASS"
+    }
+  },
+  "inventory": {
+    "CHANGES.md": {
+      "bytes": 73884,
+      "sha256": "cecd9f7bcf95d17b93bb39bdd737783e655e8fa4ea65739561b4f1e9d4a4d007"
+    },
+    "LICENSE.txt": {
+      "bytes": 1475,
+      "sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d"
+    },
+    "README.md": {
+      "bytes": 1778,
+      "sha256": "4c3de4aa0918deac2f712facacd1dc30a8cc4627d0118dd290292ab0af65ca0b"
+    },
+    "pyproject.toml": {
+      "bytes": 5334,
+      "sha256": "5cba7ca1c0977d4ca31f009af8833416f5d227290bbdf5401027df64f09020ba"
+    },
+    "uv.lock": {
+      "bytes": 258440,
+      "sha256": "742507a6bbb80c093d2ebefc073357e3ef0cb504e9299def5348377f0d585d54"
+    }
+  },
+  "limitations": [
+    "Static syntax recognition is conservative, not full Make/shell/YAML interpretation.",
+    "Authorized execution uses a disposable copy and limits, not a security sandbox.",
+    "PASS applies to the named observation, not complete engineering readiness."
+  ],
+  "mode": "audit",
+  "project": "click",
+  "schema_version": 1,
+  "source": {
+    "execution_authorized": false,
+    "files_unchanged": true,
+    "license": "BSD-3-Clause",
+    "repository": "https://github.com/pallets/click",
+    "revision": "8abb77a8432e03ed14a95f972b44f905279415a7",
+    "snapshot_sha256": "3220392c27a1a6590d4afe192f8c9b985add43544d5e63310b282c2e031c372b"
+  },
+  "summary": {
+    "FAIL": 1,
+    "NOT APPLICABLE": 0,
+    "PASS": 5,
+    "SKIP": 12,
+    "UNKNOWN": 8
+  }
+}

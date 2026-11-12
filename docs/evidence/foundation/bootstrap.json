@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "project": "/tmp/foundation-control-c6xq_scw/project",
+  "inventory": {
+    "Cargo.toml": {
+      "sha256": "3bc700d08ff860297922b9b4537dc5154ed12c8f6cc062167698c38278b93d52",
+      "bytes": 214
+    },
+    "Cargo.lock": {
+      "sha256": "ece5760d5f27f7dad3eaeb92b6275c08e8bccbacf3b883cf0d8d3f6b6c171180",
+      "bytes": 159
+    },
+    "shell.nix": {
+      "sha256": "9289df9350a75b5fdbf9e61d0b08ae2cc5c0c8b330c27acca262307f9f8e3392",
+      "bytes": 381
+    },
+    "README.md": {
+      "sha256": "a15ec8cbcbe6d8d1cd7632f9a49117758d60ef8ccb2658a3cfeb146bcc7f1db4",
+      "bytes": 1694
+    },
+    "LICENSE": {
+      "sha256": "731eadf382548f04fa5be4cc059825ed6354db7482986100155d038e8492634d",
+      "bytes": 1074
+    },
+    "AGENTS.md": {
+      "sha256": "e14ae67ec49f49e0319bd61ffd1010d8ea31215e3dd2f8ebfa34bfc25a515351",
+      "bytes": 576
+    },
+    "CHANGELOG.md": {
+      "sha256": "4b3d706d148b6f36624bae8120d4cac4c0ac8984d07e442b54d5ffa982340cc9",
+      "bytes": 147
+    }
+  },
+  "capabilities": {
+    "makefile": "REQUIRED",
+    "release_management": "REQUIRED",
+    "tests": "REQUIRED",
+    "documentation": "REQUIRED",
+    "environment": "REQUIRED",
+    "agent_instructions": "RECOMMENDED",
+    "containers": "NOT APPLICABLE",
+    "registry_publication": "OPTIONAL"
+  },
+  "mode": "verify",
+  "checks": {
+    "makefile_contract": {
+      "status": "PASS",
+      "detail": "missing targets: "
+    },
+    "nonempty_targets": {
+      "status": "PASS",
+      "detail": "empty targets: "
+    },
+    "version_source": {
+      "status": "PASS",
+      "detail": "rust authoritative version: 0.1.0; workspace/dynamic versions need review"
+    },
+    "changelog_version": {
+      "status": "PASS",
+      "detail": "latest release 0.1.0, source 0.1.0; Unreleased headers are ignored"
+    },
+    "lock_consistency": {
+      "status": "PASS",
+      "detail": "root package version must agree with lock"
+    },
+    "documented_commands": {
+      "status": "PASS",
+      "detail": "unknown documented targets: "
+    },
+    "release_strategy": {
+      "status": "PASS",
+      "detail": "requires review of version, source, artifact, publication and recovery semantics"
+    },
+    "ci_targets": {
+      "status": "PASS",
+      "detail": "unknown CI targets: "
+    },
+    "ci_interface": {
+      "status": "PASS",
+      "detail": "CI should reuse make setup, make check, make build; native CI may be valid"
+    },
+    "cleanup_boundary": {
+      "status": "PASS",
+      "detail": "reject obvious cleanup outside owned generated paths"
+    },
+    "publication_boundary": {
+      "status": "PASS",
+      "detail": "reviewed helper only prepares local files; no remote mutation"
+    },
+    "development_environment": {
+      "status": "PASS",
+      "detail": "Nix definition found; pins and declared tools still require review"
+    },
+    "containers": {
+      "status": "NOT APPLICABLE",
+      "detail": "reviewed dependency-free CLI profile has no service or container requirement"
+    },
+    "operational_readiness": {
+      "status": "PASS",
+      "detail": "CLI success and overflow exit behavior exercised by release validation; service operations not applicable"
+    },
+    "help_runtime": {
+      "status": "PASS",
+      "detail": "make help",
+      "evidence": {
+        "command": [
+          "make",
+          "help"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "output": "help - List the stable developer interface\nsetup - Validate installed native tools; enter nix-shell to obtain them\nformat - Format Rust source with rustfmt\nlint - Check formatting and Clippy warnings\ntest - Run unit, integration and documentation tests\ncheck - Complete local quality gate\nbuild - Build the release binary without changing the lockfile\nclean - Remove only the owned Cargo target directory\nrelease-check - Validate metadata, tree, tags, docs and the built binary\nrelease - Prepare and validate a local archive; never publish or tag\n"
+      }
+    },
+    "help_documents_targets": {
+      "status": "PASS",
+      "detail": "help must name every required target"
+    },
+    "setup_runtime": {
+      "status": "PASS",
+      "detail": "make setup",
+      "evidence": {
+        "command": [
+          "make",
+          "setup"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "output": "GNU Make 4.4.1\ngit version 2.55.0\ncargo 1.97.0 (c980f4866 2026-06-30)\nrustfmt 1.9.0\ngcc (GCC) 15.3.0\nclippy 0.1.97\n3.12.14 (main, Aug 12 2026, 13:57:54) [GCC 15.3.0]\n"
+      }
+    },
+    "lint_runtime": {
+      "status": "PASS",
+      "detail": "make lint",
+      "evidence": {
+        "command": [
+          "make",
+          "lint"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "output": "cargo fmt -- --check\ncargo clippy --locked --offline --all-targets -- -D warnings\n    Checking foundation-demo v0.1.0 (/tmp/sdd-foundation-zlg5zt49/project)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.13s\n"
+      }
+    },
+    "tests_execute": {
+      "status": "PASS",
+      "detail": "make test",
+      "evidence": {
+        "command": [
+          "make",
+          "test"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "output": "cargo test --locked --offline\n   Compiling foundation-demo v0.1.0 (/tmp/sdd-foundation-zlg5zt49/project)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.45s\n     Running unittests src/lib.rs (target/debug/deps/foundation_demo-85a18a0577c1d1ce)\n\nrunning 2 tests\ntest tests::doubles_signed_input ... ok\ntest tests::rejects_overflow ... ok\n\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/main.rs (target/debug/deps/foundation_demo-0e45f93b9c222f2a)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/cli.rs (target/debug/deps/cli-28a32b7ca2d8747c)\n\nrunning 1 test\ntest cli_reports_compiled_version_and_rejects_overflow ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n   Doc-tests foundation_demo\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n"
+      }
+    },
+    "check_runtime": {
+      "status": "PASS",
+      "detail": "make check",
+      "evidence": {
+        "command": [
+          "make",
+          "check"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "output": "cargo fmt -- --check\ncargo clippy --locked --offline --all-targets -- -D warnings\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.05s\ncargo test --locked --offline\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.06s\n     Running unittests src/lib.rs (target/debug/deps/foundation_demo-85a18a0577c1d1ce)\n\nrunning 2 tests\ntest tests::doubles_signed_input ... ok\ntest tests::rejects_overflow ... ok\n\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/main.rs (target/debug/deps/foundation_demo-0e45f93b9c222f2a)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/cli.rs (target/debug/deps/cli-28a32b7ca2d8747c)\n\nrunning 1 test\ntest cli_reports_compiled_version_and_rejects_overflow ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n   Doc-tests foundation_demo\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n"
+      }
+    },
+    "build_runtime": {
+      "status": "PASS",
+      "detail": "make build",
+      "evidence": {
+        "command": [
+          "make",
+          "build"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "output": "cargo build --release --locked --offline\n   Compiling foundation-demo v0.1.0 (/tmp/sdd-foundation-zlg5zt49/project)\n    Finished `release` profile [optimized] target(s) in 0.22s\n"
+      }
+    },
+    "test_failure_propagates": {
+      "status": "PASS",
+      "detail": "make test",
+      "evidence": {
+        "command": [
+          "make",
+          "test"
+        ],
+        "exit_code": 2,
+        "timed_out": false,
+        "output": "cargo test --locked --offline\n   Compiling foundation-demo v0.1.0 (/tmp/sdd-foundation-zlg5zt49/project)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.23s\n     Running unittests src/lib.rs (target/debug/deps/foundation_demo-85a18a0577c1d1ce)\n\nrunning 2 tests\ntest tests::doubles_signed_input ... ok\ntest tests::rejects_overflow ... ok\n\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/main.rs (target/debug/deps/foundation_demo-0e45f93b9c222f2a)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/cli.rs (target/debug/deps/cli-28a32b7ca2d8747c)\n\nrunning 1 test\ntest cli_reports_compiled_version_and_rejects_overflow ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/sdd_foundation_injected.rs (target/debug/deps/sdd_foundation_injected-82519839c48c1d03)\n\nrunning 1 test\ntest sdd_injected_failure ... FAILED\n\nfailures:\n\n---- sdd_injected_failure stdout ----\n\nthread 'sdd_injected_failure' (3169189) panicked at tests/sdd_foundation_injected.rs:7:5:\nassertion `left == right` failed: SDD_INJECTED_FAILURE\n  left: 4\n right: 5\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    sdd_injected_failure\n\ntest result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\nerror: test failed, to rerun pass `--test sdd_foundation_injected`\nmake: *** [Makefile:14: test] Error 101\n"
+      }
+    },
+    "check_failure_propagates": {
+      "status": "PASS",
+      "detail": "make check",
+      "evidence": {
+        "command": [
+          "make",
+          "check"
+        ],
+        "exit_code": 2,
+        "timed_out": false,
+        "output": "cargo fmt -- --check\ncargo clippy --locked --offline --all-targets -- -D warnings\n    Checking foundation-demo v0.1.0 (/tmp/sdd-foundation-zlg5zt49/project)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.09s\ncargo test --locked --offline\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.06s\n     Running unittests src/lib.rs (target/debug/deps/foundation_demo-85a18a0577c1d1ce)\n\nrunning 2 tests\ntest tests::doubles_signed_input ... ok\ntest tests::rejects_overflow ... ok\n\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/main.rs (target/debug/deps/foundation_demo-0e45f93b9c222f2a)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/cli.rs (target/debug/deps/cli-28a32b7ca2d8747c)\n\nrunning 1 test\ntest cli_reports_compiled_version_and_rejects_overflow ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/sdd_foundation_injected.rs (target/debug/deps/sdd_foundation_injected-82519839c48c1d03)\n\nrunning 1 test\ntest sdd_injected_failure ... FAILED\n\nfailures:\n\n---- sdd_injected_failure stdout ----\n\nthread 'sdd_injected_failure' (3169227) panicked at tests/sdd_foundation_injected.rs:7:5:\nassertion `left == right` failed: SDD_INJECTED_FAILURE\n  left: 4\n right: 5\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    sdd_injected_failure\n\ntest result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\nerror: test failed, to rerun pass `--test sdd_foundation_injected`\nmake: *** [Makefile:14: test] Error 101\n"
+      }
+    },
+    "release_invalid_state": {
+      "status": "PASS",
+      "detail": "make release-check",
+      "evidence": {
+        "command": [
+          "make",
+          "release-check"
+        ],
+        "exit_code": 2,
+        "timed_out": false,
+        "output": "cargo fmt -- --check\ncargo clippy --locked --offline --all-targets -- -D warnings\n    Checking foundation-demo v999.0.0 (/tmp/sdd-foundation-zlg5zt49/project)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.13s\ncargo test --locked --offline\n   Compiling foundation-demo v999.0.0 (/tmp/sdd-foundation-zlg5zt49/project)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.43s\n     Running unittests src/lib.rs (target/debug/deps/foundation_demo-ee536ae898dcf210)\n\nrunning 2 tests\ntest tests::doubles_signed_input ... ok\ntest tests::rejects_overflow ... ok\n\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/main.rs (target/debug/deps/foundation_demo-153ba7fed439301f)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/cli.rs (target/debug/deps/cli-8a725f051661bd93)\n\nrunning 1 test\ntest cli_reports_compiled_version_and_rejects_overflow ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n   Doc-tests foundation_demo\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\ncargo build --release --locked --offline\n   Compiling foundation-demo v999.0.0 (/tmp/sdd-foundation-zlg5zt49/project)\n    Finished `release` profile [optimized] target(s) in 0.22s\nlatest changelog version differs from source\nmake: *** [Makefile:21: release-check] Error 1\n"
+      }
+    },
+    "release_ready": {
+      "status": "PASS",
+      "detail": "make release-check",
+      "evidence": {
+        "command": [
+          "make",
+          "release-check"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "output": "cargo fmt -- --check\ncargo clippy --locked --offline --all-targets -- -D warnings\n    Checking foundation-demo v0.1.0 (/tmp/sdd-foundation-zlg5zt49/project)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.11s\ncargo test --locked --offline\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.06s\n     Running unittests src/lib.rs (target/debug/deps/foundation_demo-85a18a0577c1d1ce)\n\nrunning 2 tests\ntest tests::doubles_signed_input ... ok\ntest tests::rejects_overflow ... ok\n\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/main.rs (target/debug/deps/foundation_demo-0e45f93b9c222f2a)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/cli.rs (target/debug/deps/cli-28a32b7ca2d8747c)\n\nrunning 1 test\ntest cli_reports_compiled_version_and_rejects_overflow ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n   Doc-tests foundation_demo\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\ncargo build --release --locked --offline\n    Finished `release` profile [optimized] target(s) in 0.00s\n{\"dirty_preview\": true, \"kind\": \"rust\", \"name\": \"foundation-demo\", \"source\": \"disposable-verification-snapshot\", \"toolchain\": \"rustc 1.97.1 (8bab26f4f 2026-07-14) (built from a source tarball)\", \"version\": \"0.1.0\"}\n"
+      }
+    },
+    "release_artifact": {
+      "status": "PASS",
+      "detail": "make release",
+      "evidence": {
+        "command": [
+          "make",
+          "release"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "output": "cargo fmt -- --check\ncargo clippy --locked --offline --all-targets -- -D warnings\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.05s\ncargo test --locked --offline\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.06s\n     Running unittests src/lib.rs (target/debug/deps/foundation_demo-85a18a0577c1d1ce)\n\nrunning 2 tests\ntest tests::doubles_signed_input ... ok\ntest tests::rejects_overflow ... ok\n\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/main.rs (target/debug/deps/foundation_demo-0e45f93b9c222f2a)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/cli.rs (target/debug/deps/cli-28a32b7ca2d8747c)\n\nrunning 1 test\ntest cli_reports_compiled_version_and_rejects_overflow ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n   Doc-tests foundation_demo\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\ncargo build --release --locked --offline\n    Finished `release` profile [optimized] target(s) in 0.00s\n{\"dirty_preview\": true, \"kind\": \"rust\", \"name\": \"foundation-demo\", \"source\": \"disposable-verification-snapshot\", \"toolchain\": \"rustc 1.97.1 (8bab26f4f 2026-07-14) (built from a source tarball)\", \"version\": \"0.1.0\"}\n{\"archive\": \"/tmp/sdd-foundation-zlg5zt49/project/dist/foundation-demo-0.1.0.tar.gz\", \"dirty_preview\": true, \"kind\": \"rust\", \"name\": \"foundation-demo\", \"sha256\": \"d807bde397ed246070ffd9ac93c08a6456522ced2ffdc79bf2e9b6e4e09bc3e7\", \"source\": \"disposable-verification-snapshot\", \"toolchain\": \"rustc 1.97.1 (8bab26f4f 2026-07-14) (built from a source tarball)\", \"version\": \"0.1.0\"}\nLocal preparation only. Publication requires separate explicit approval.\n"
+      }
+    },
+    "artifact_integrity": {
+      "status": "PASS",
+      "detail": "independent archive, bytes, version and SHA256 checks"
+    },
+    "cleanup_runtime": {
+      "status": "PASS",
+      "detail": "make clean",
+      "evidence": {
+        "command": [
+          "make",
+          "clean"
+        ],
+        "exit_code": 2,
+        "timed_out": false,
+        "output": "target must not be a symlink\nmake: *** [Makefile:19: clean] Error 1\n"
+      }
+    },
+    "cleanup_preserves_data": {
+      "status": "PASS",
+      "detail": "symlink escape tripwire remains"
+    },
+    "undeclared_tools": {
+      "status": "PASS",
+      "detail": "tools absent from environment/setup/docs: "
+    }
+  },
+  "summary": {
+    "PASS": 29,
+    "FAIL": 0,
+    "SKIP": 0,
+    "UNKNOWN": 0,
+    "NOT APPLICABLE": 1
+  },
+  "limitations": [
+    "Static syntax recognition is conservative, not full Make/shell/YAML interpretation.",
+    "Authorized execution uses a disposable copy and limits, not a security sandbox.",
+    "PASS applies to the named observation, not complete engineering readiness."
+  ]
+}

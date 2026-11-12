@@ -1,0 +1,37 @@
+[
+  {
+    "control": "missing_check",
+    "expected": "FAIL",
+    "observed": "FAIL"
+  },
+  {
+    "control": "unsafe_publication",
+    "expected": "FAIL",
+    "observed": "FAIL"
+  },
+  {
+    "control": "wrong_changelog",
+    "expected": "FAIL",
+    "observed": "FAIL"
+  },
+  {
+    "control": "missing_ci_target",
+    "expected": "FAIL",
+    "observed": "FAIL"
+  },
+  {
+    "control": "missing_doc_target",
+    "expected": "FAIL",
+    "observed": "FAIL"
+  },
+  {
+    "control": "escaping_clean",
+    "expected": "FAIL",
+    "observed": "FAIL"
+  },
+  {
+    "control": "lock_drift",
+    "expected": "FAIL",
+    "observed": "FAIL"
+  }
+]

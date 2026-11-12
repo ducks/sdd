@@ -1,0 +1,73 @@
+{
+  "beanledger": {
+    "files": {
+      ".github/workflows/ci.yml": "23558e72434d4d6d0a619d2f58b77d52ddf4073b0c7b947698a3b1f1a590eee0",
+      ".github/workflows/release.yml": "a11ba97698b938ed2f3c9812ac9ade34370345dc0715e66876fd7a3e663b91f0",
+      "Makefile": "dab28e1f45db31a69152f984a2ca2a1470a5d27761a5046767ebae8987f52630",
+      "README.md": "29afd19ac34b3dcfc81e84431023ec47593c19a549eeb5d95fb2fac5bc5890c7",
+      "package.json": "277ce54087bfb2280222be71a54e6d9cbf77dc7e2819be45b46c7439c6006467",
+      "pnpm-lock.yaml": "2ad18f60b8e89652ea0c2a672fb376cc735fcc28961502559b1932ebb282227a",
+      "shell.nix": "334db0b2db055432a48d24e4738145e79984af6c944b8bf803c6d13ed0104c9d"
+    },
+    "origin": "git@github.com:ducks/beanledger.git",
+    "revision": "d0e39f02f6f7756392142ad3171b26e35cc672f8"
+  },
+  "claux": {
+    "files": {
+      ".github/workflows/ci.yml": "b893aefb567726e16d0aab9e7e15551a2c1e399dcbc39d1619cd537cab216511",
+      ".github/workflows/release.yml": "d99bbbd3adeb25c7bd81d6adfed9ae47560801c3cb8efb2151403a1782044130",
+      "Cargo.lock": "da674b1f685bda65a241c592c0107abd32ac6ed6171efd034aa7235897efc6fa",
+      "Cargo.toml": "8ea885a9c659b8716c3f182f0e996955d86edd901f78be32af97f629181a8051",
+      "Makefile": "9b14500ac276e362dc494995770bf81067d5d4f7fb13629ba2cc09acdb1c84a7",
+      "README.md": "a2de181489c31dca589aedb710a3136c56af6c750dbe7ec76ada3675fb9c90cb",
+      "shell.nix": "eef23198005bd2677290ec9fcd74d5067565eff12eef90feea22515d26b4b008"
+    },
+    "origin": "git@github.com:ducks/claux.git",
+    "revision": "b40f4528903436662a68c8c81ad88514f16b85cb"
+  },
+  "diffuse-labs-test": {
+    "files": {
+      "README.md": "5dfba1fa8908005aabcf7ec7eddf00a776d481799632d47f00786219e57b7609",
+      "pyproject.toml": "f23012c7b91f7d1099ad2e7457677abeb28030dfdf056db90748159532736b54",
+      "shell.nix": "46d2b14fc2f0c06dc2daa79688595f6d26b6dee13263ada2df27bee3036f2a4e",
+      "uv.lock": "c543958ef3c800721c78b2be19f18cfa5bf15aa8a4303527266719d26f871b90"
+    },
+    "origin": "git@github.com:ducks/diffuse-labs-test.git",
+    "revision": "e63d7cb9ebfec2f4220318b00c865db24c6c4c5f"
+  },
+  "llm-mux": {
+    "files": {
+      ".github/workflows/release.yml": "92716e0dbd0d077e7cb72b2263aae68d8b24f08c2f0e2806d0741f155e53afde",
+      "Cargo.lock": "6f1086d053affbe72090e2291ad80271fd56220926ea093cef8227d485eb2ab8",
+      "Cargo.toml": "ee2ea6879617ba6e5a5c2a708bbbcd1155ed919c6ae62c62ad8042a4ff87bfe9",
+      "Makefile": "4557b32004b3368b67d300f27b0d7d50466932b1e3a6ef524758e81b6af2b8ad",
+      "README.md": "c3276f27446a1016887c9fbf53fd01eec55f26141ee5cd8f9dfa8354afc2c1cd",
+      "shell.nix": "2c63206f88d188599fd10025fff91907a1b1d76c9a52ef6913240b2a91a62ef6"
+    },
+    "origin": "git@github.com:ducks/llm-mux.git",
+    "revision": "f56698b3993c6faee369b3ecb2619277764a1175"
+  },
+  "murmur": {
+    "files": {
+      "Cargo.lock": "7a40352b25cd17c5013ffa71b3eb080715fbb66559ff85d79b223d82997181c7",
+      "Cargo.toml": "129013f8bf9d6623b90ac299652468ab5e322863e13902b59c01ab134951194d",
+      "README.md": "e0853448a6519bb68a2dbbc8e3f084e77052347d7fc60e62f7a1357a5c546a74",
+      "shell.nix": "118665fe5d24c923517501038b1fc311b5b2c3d0c14d00a2c15e0a27ce6875b7"
+    },
+    "origin": "git@github.com:ducks/murmur.git",
+    "revision": "e72d8216682666a13bd22650f5ffc2f133b599ad"
+  },
+  "replaybook": {
+    "files": {
+      ".github/workflows/ci.yml": "f59e7ef4b8e5d618234bb39f5720cd948f0dcfade07ae19b4dc6445390c0d0ec",
+      ".github/workflows/release.yml": "85b9286c7da6308f7db90c050ad2f022a873d434d0a4ecd95486f5ffafd1c007",
+      "Cargo.lock": "fb6bb791c3199d454e5fe4367c7424267fba47f93eb88bb98ce7a0c108a8a67f",
+      "Cargo.toml": "466189c90a31a80402794605220aa48c9e59907b20bf250012b96666ecc467d7",
+      "Makefile": "0cb3067bc3a028615bfe9abfffa220c7a7c08709d0213060a241eb5cefdf6703",
+      "README.md": "3fb78ad7a26daf4078d1b534b6f9a6c05cefa0af0c32f776c9a8d4bbe674298e",
+      "shell.nix": "212afb5dea0039a5666d4d6adbe7a918ba3b2755604addbbdfe2abbeda6db4c1"
+    },
+    "origin": "git@github.com:ducks/replaybook.git",
+    "revision": "294001ec423af74e315aade2bf1c7a3cd6a9b8e2"
+  }
+}

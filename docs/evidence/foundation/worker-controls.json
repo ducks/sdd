@@ -1,0 +1,14 @@
+[
+  {
+    "fault": "missing-fence",
+    "expected_failed_check": "lease_fencing",
+    "detected": true,
+    "report": "missing-fence.json"
+  },
+  {
+    "fault": "missing-timeout",
+    "expected_failed_check": "bounded_timeout",
+    "detected": true,
+    "report": "missing-timeout.json"
+  }
+]
