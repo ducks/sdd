@@ -4,14 +4,18 @@ A small experiment in packaging an engineering capability as an ordinary
 [Agent Skill](https://agentskills.io/specification): knowledge, a working
 baseline, adaptation guidance and independent executable acceptance checks.
 
-Two independent capabilities are included:
+Two engineering capabilities and two interview practice skills are included:
 
 | Skill | Working reference | Verification |
 | --- | --- | --- |
 | [monitoring-stack](skills/monitoring-stack/SKILL.md) | Python HTTP service, Prometheus and Grafana | Real scrape/query checks and broken-stack controls |
 | [reliable-worker](skills/reliable-worker/SKILL.md) | Python/SQLite durable jobs with a process supervisor | Retry, duplicate, crash, timeout and shutdown checks |
+| [frame-system-design](skills/frame-system-design/SKILL.md) | FRAME decision worksheet and rehearsal prompts | Review checklist; no automated design grader |
+| [code-live-coding](skills/code-live-coding/SKILL.md) | CODE prompts, pacing and setup checklist | Guides actual test/metric verification; no bundled application verifier |
 
-No agent runtime, model API or hosted service is required to use or verify either skill.
+No agent runtime, model API or hosted service is required to load these skills.
+The interview guides package knowledge and practice prompts; they do not claim
+to be tested application baselines.
 
 This is a packaging practice, not a new skill specification. Ordinary skills
 already support scripts and assets. Scaffolding already produces working code.
@@ -91,6 +95,29 @@ python3 worker.py --db /tmp/sdd-worker-demo.sqlite work --idle-exit 1
 See [worker adaptation/results](docs/worker-adaptation.md) and the
 [worker contract](skills/reliable-worker/references/contract.md). The invoice
 example preserves the synchronous domain API/CLI while adding background jobs.
+
+## Interview practice: FRAME and CODE
+
+[FRAME](skills/frame-system-design/SKILL.md) structures a system-design discussion:
+frame the problem, requirements/constraints, architecture, modes of failure and
+evolution. Decisions follow assumption → choice → trade-off → validation.
+
+[CODE](skills/code-live-coding/SKILL.md) structures a live Python exercise with AI:
+comprehend, outline, develop incrementally and evaluate tests plus real behavior.
+It includes the supplied Claude Code exploration prompt, observability reminders
+and the Neovim/Python/uv/Claude Code setup checklist. Both default to 60 minutes
+and can be loaded by any compatible agent. These are based on the supplied ICEYE
+preparation notes, not official company assessment criteria.
+
+> Use frame-system-design to rehearse a 60-minute interview. Ask me to clarify
+> requirements, then introduce one changed constraint after I explain a baseline.
+
+> Use code-live-coding to review my plan for this Python exercise. Start with
+> read-only inspection, then help me scope a small implementation and show how
+> I will verify tests and observable behavior.
+
+No code runs when either skill is loaded. Read-only inspection does not authorize
+Make, project hooks, model CLI execution, image pulls or service startup.
 
 ## Load a skill
 
