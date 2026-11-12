@@ -7,3 +7,7 @@ runs/
 *.sqlite-journal
 *.sqlite-wal
 *.sqlite-shm
+
+/skills/codebase-foundation/baseline/target/
+/skills/codebase-foundation/baseline/dist/
+/dist/

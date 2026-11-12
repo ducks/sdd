@@ -4,14 +4,15 @@ A small experiment in packaging an engineering capability as an ordinary
 [Agent Skill](https://agentskills.io/specification): knowledge, a working
 baseline, adaptation guidance and independent executable acceptance checks.
 
-Two independent capabilities are included:
+Three independent capabilities are included:
 
 | Skill | Working reference | Verification |
 | --- | --- | --- |
 | [monitoring-stack](skills/monitoring-stack/SKILL.md) | Python HTTP service, Prometheus and Grafana | Real scrape/query checks and broken-stack controls |
 | [reliable-worker](skills/reliable-worker/SKILL.md) | Python/SQLite durable jobs with a process supervisor | Retry, duplicate, crash, timeout and shutdown checks |
+| [codebase-foundation](skills/codebase-foundation/SKILL.md) | Project setup/improvement playbook following Jake's conventions | Native project checks and visual review; optional tested Rust example/checker |
 
-No agent runtime, model API or hosted service is required to use or verify either skill.
+No agent runtime, model API or hosted service is required to use or verify these skills.
 
 This is a packaging practice, not a new skill specification. Ordinary skills
 already support scripts and assets. Scaffolding already produces working code.
@@ -26,6 +27,9 @@ Requirements: Python 3.12+, Docker Engine, Docker Compose v2+, and authorized
 container execution. First image/package downloads need network access; deployed
 services and checks run locally. `nix-shell` supplies Python dependencies and
 Docker clients without installing tools globally; a Docker daemon is still needed.
+If host Docker plugins conflict with the pinned clients, run
+`SDD_ISOLATED_DOCKER=1 nix-shell` for matching plugins in a disposable client
+configuration. It does not load your registry credentials and cleans up on exit.
 
 ```sh
 nix-shell                         # optional, or use your Python environment
@@ -92,6 +96,58 @@ See [worker adaptation/results](docs/worker-adaptation.md) and the
 [worker contract](skills/reliable-worker/references/contract.md). The invoice
 example preserves the synchronous domain API/CLI while adding background jobs.
 
+## Use codebase-foundation
+
+Use this skill to set up a new project or improve an existing one using Jake's
+engineering conventions. It guides README and architecture documentation, Nix
+shells/flakes, Make commands, appropriate Docker/Compose, native tests, demo/test seed data, benchmarks, screenshot
+workflows, CI/CD and release management. Go and Python are normal target projects;
+there is no requirement to create a new repository or adopt Rust.
+
+> Use codebase-foundation to improve this Python service. Preserve its architecture
+> and uv setup; improve the README, Nix environment, Make targets, tests and CI.
+> Reuse its Compose database. Define release preparation without publishing.
+
+> Use codebase-foundation to bootstrap a Go project with a useful README, Nix
+> environment, Makefile, native tests, CI and a safe release workflow. Add Docker
+> only if it serves a concrete requirement.
+
+For a UI/TUI, include a repeatable screenshot → inspect → change → recapture
+workflow and behavioral checks, reusing existing browser or terminal tooling.
+For headless code, mark visual work not applicable. Preserve a working shell.nix
+or flake; do not migrate or add infrastructure merely to match an example.
+
+Options are ordinary request inputs: mode bootstrap/improve/audit, language auto,
+and an optional scope such as docs,env,tests,visual,ci,release. Audit is read-only;
+setup and improvement perform the requested changes and verify them using the
+project's own commands. Make and a release strategy remain required. Tool and
+workflow selection follows project needs, not the optional checker's coverage.
+
+Start with [SKILL.md](skills/codebase-foundation/SKILL.md), then read the relevant
+[setup playbook](skills/codebase-foundation/references/project-setup.md) or
+[visual workflow](skills/codebase-foundation/references/visual-workflow.md).
+
+The bundled Rust CLI and executable verifier are **optional supporting examples**
+of Make/release behavior. They neither define the skill nor validate every Go or
+Python workflow. No automatic checker replaces native tests, live behavior and
+visual inspection. To exercise the example implementation itself:
+
+```sh
+nix-shell
+make verify-foundation
+make foundation-controls
+```
+
+SDD's root workflow remains make help/setup/check/build, with separate live
+monitoring targets. make release-check includes all capability checks and requires
+an authorized Docker daemon. make release only prepares local files; publication,
+commits, tags, pushes and deployments require explicit authorization. See
+[release instructions](RELEASE.md), [repository research](docs/codebase-foundation-research.md),
+[external audits](docs/codebase-foundation-audits.md), and the
+[implementation report](docs/codebase-foundation-report.md) for example evidence
+and its limits. Runtime results there cover the example implementation, not an
+assessment of every foundation topic in this playbook.
+
 ## Load a skill
 
 The portable unit is one complete directory under `skills/`, beginning
@@ -155,7 +211,7 @@ directory names are not a new schema; use what the capability actually needs.
 ## Scope
 
 This prototype supports disposable local monitoring deployments, single-process
-Python HTTP services and local SQLite-backed background jobs. It has no package registry, dependency resolver, agent
+Python HTTP services, local SQLite-backed background jobs and a general project-foundation playbook with an optional tested Rust example. It has no package registry, dependency resolver, agent
 orchestration, proprietary integration, Kubernetes, tracing, alert manager or
-production deployment controller. Go/Rust adapters, production worker models,
+production deployment controller. Go/Rust monitoring and worker adapters, production worker models,
 streaming request semantics and broad framework support remain future work.

@@ -1,0 +1,175 @@
+{
+  "capabilities": {
+    "agent_instructions": "RECOMMENDED",
+    "containers": "OPTIONAL",
+    "documentation": "REQUIRED",
+    "environment": "REQUIRED",
+    "makefile": "REQUIRED",
+    "registry_publication": "OPTIONAL",
+    "release_management": "REQUIRED",
+    "tests": "REQUIRED"
+  },
+  "checks": {
+    "build_runtime": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "changelog_version": {
+      "detail": "review release history/version policy manually",
+      "status": "UNKNOWN"
+    },
+    "check_failure_propagates": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "check_runtime": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "ci_interface": {
+      "detail": "CI should reuse make setup, make check, make build; native CI may be valid",
+      "status": "UNKNOWN"
+    },
+    "ci_targets": {
+      "detail": "unknown CI targets: ",
+      "status": "PASS"
+    },
+    "cleanup_boundary": {
+      "detail": "reject obvious cleanup outside owned generated paths",
+      "status": "PASS"
+    },
+    "cleanup_runtime": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "containers": {
+      "detail": "context dependent; do not add containers to satisfy this checker",
+      "status": "UNKNOWN"
+    },
+    "development_environment": {
+      "detail": "inspect setup/tool declarations",
+      "status": "UNKNOWN"
+    },
+    "documented_commands": {
+      "detail": "unknown documented targets: ",
+      "status": "PASS"
+    },
+    "help_runtime": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "lint_runtime": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "lock_consistency": {
+      "detail": "inspect dependency resolver and frozen install behavior",
+      "status": "UNKNOWN"
+    },
+    "makefile_contract": {
+      "detail": "missing targets: build, check, clean, format, help, lint, release, release-check, setup, test",
+      "status": "FAIL"
+    },
+    "nonempty_targets": {
+      "detail": "empty targets: ",
+      "status": "PASS"
+    },
+    "operational_readiness": {
+      "detail": "CLI failure behavior or service health, shutdown and recovery require review",
+      "status": "UNKNOWN"
+    },
+    "publication_boundary": {
+      "detail": "indirect scripts need review; no publication executed",
+      "status": "UNKNOWN"
+    },
+    "release_artifact": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "release_invalid_state": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "release_strategy": {
+      "detail": "requires review of version, source, artifact, publication and recovery semantics",
+      "status": "UNKNOWN"
+    },
+    "setup_runtime": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "test_failure_propagates": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "tests_execute": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "undeclared_tools": {
+      "detail": "repository execution not authorized; static audit only",
+      "status": "SKIP"
+    },
+    "version_source": {
+      "detail": "source authoritative version: None; workspace/dynamic versions need review",
+      "status": "UNKNOWN"
+    }
+  },
+  "inventory": {
+    "CHANGELOG.md": {
+      "bytes": 47451,
+      "sha256": "105baa49c29cfc9b351916cca11f3c372cdab34aad4211d57233d5ca4720386a"
+    },
+    "LICENSE": {
+      "bytes": 1507,
+      "sha256": "2151fd0e0678bea30d9d16230713a470a127d7b8c34999c17dbebbb0a3485f18"
+    },
+    "README.md": {
+      "bytes": 25319,
+      "sha256": "54f17cf15f0faf08ca8296cbc9652d0d5e8656136aff17d13c3457e558bbefc6"
+    },
+    "docker/Dockerfile": {
+      "bytes": 1883,
+      "sha256": "087872f8266d11a2026dbb5c2638b0557229be148316d16d46dd537d82036ec2"
+    },
+    "docker/docker-compose.yml": {
+      "bytes": 747,
+      "sha256": "ed5a48134af6dd9464866c9f0951f8208dc73103e001cb890aaf10f26450dfb4"
+    },
+    "manage.py": {
+      "bytes": 440,
+      "sha256": "74a39866da41e415301cf180db5ee61c8f4d2db513be8ebc12e76a9adc511197"
+    },
+    "requirements-dev.txt": {
+      "bytes": 158,
+      "sha256": "5ea64eb3efbfe49fd5004198e96f698a2373f308856eef7618ea380e85803c9d"
+    },
+    "requirements.txt": {
+      "bytes": 255,
+      "sha256": "17a568b446bcbd7ddfb754ac894a233713c7c986db3eec2e4fafcaa989f9c0b5"
+    }
+  },
+  "limitations": [
+    "Static syntax recognition is conservative, not full Make/shell/YAML interpretation.",
+    "Authorized execution uses a disposable copy and limits, not a security sandbox.",
+    "PASS applies to the named observation, not complete engineering readiness."
+  ],
+  "mode": "audit",
+  "project": "healthchecks",
+  "schema_version": 1,
+  "source": {
+    "execution_authorized": false,
+    "files_unchanged": true,
+    "license": "BSD-3-Clause",
+    "repository": "https://github.com/healthchecks/healthchecks",
+    "revision": "255075ce65ee0997fd9d3b8dd04e4829a87fad5d",
+    "snapshot_sha256": "a2ce450f20783bdd91a5b29b266573ed0851a70d55746c13182a3d4905d2cd60"
+  },
+  "summary": {
+    "FAIL": 1,
+    "NOT APPLICABLE": 0,
+    "PASS": 4,
+    "SKIP": 12,
+    "UNKNOWN": 9
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "base_revision": "14869e601755380374af494647bc6b60a863d73e",
+  "branch": "feature/codebase-foundation",
+  "commands": [
+    {
+      "command": "nix-shell --run 'make setup && make check && make build && make verify-foundation'",
+      "exit_code": 0,
+      "log": "/tmp/sdd-full-check.log"
+    },
+    {
+      "command": "nix-shell --run 'make format && make check && make verify-foundation'",
+      "exit_code": 0,
+      "log": "/tmp/sdd-final-local-check.log"
+    },
+    {
+      "command": "SDD_ISOLATED_DOCKER=1 nix-shell --run 'make verify-baseline verify-example controls'",
+      "exit_code": 0,
+      "log": "/tmp/sdd-monitoring-check.log"
+    },
+    {
+      "command": "SDD_ISOLATED_DOCKER=1 RELEASE_ALLOW_DIRTY=1 nix-shell --run 'make release'",
+      "exit_code": 0,
+      "log": "/tmp/sdd-release-preview.log",
+      "note": "Local preview only; this command is rerun after collecting evidence."
+    }
+  ],
+  "committed": false,
+  "limitations": [
+    "Hosted CI not run.",
+    "Unfamiliar repositories statically audited only.",
+    "No hostile-code sandbox or publication implementation.",
+    "Preview source is uncommitted; clean release eligibility is not claimed."
+  ],
+  "observed": {
+    "foundation_baseline": {
+      "NOT APPLICABLE": 1,
+      "PASS": 29
+    },
+    "foundation_improve": {
+      "NOT APPLICABLE": 1,
+      "PASS": 29
+    },
+    "foundation_negative_controls": 11,
+    "foundation_tests": 13,
+    "monitoring_baseline_passes": 19,
+    "monitoring_example_passes": 19,
+    "monitoring_negative_controls_detected": 3,
+    "python_unit_tests": 26,
+    "worker_baseline_passes": 14,
+    "worker_example_passes": 14,
+    "worker_negative_controls_detected": 2
+  },
+  "published": false,
+  "source_sha256": {
+    ".github/workflows/test.yml": "ab79cfbc1678b5033310698647177a179abb677c66807c3da085d35eea01f83f",
+    ".gitignore": "9875a29069a309d1ed656f109502340d6fd4ccec0765690d08596f4c12d504ff",
+    "AGENTS.md": "61d7fe14f52efaab627839415dfee54e084934263dc2f90ade0c65f96e0d9471",
+    "CHANGELOG.md": "b905b6c46ef7bc733bff5ecdd5f5990711498ad53b9f89fec40053f2fb444a4e",
+    "Makefile": "6df98fee52d238eb39f577655085042c19cbe474520b4d4ec880a935e0019cbc",
+    "README.md": "5d7ac8aded28e1021f2a267e90b2c46f8daafa0ae64c4371e3fc0fc1d184c063",
+    "RELEASE.md": "439f42ffa8c4b52fd3dab6858c9ed6d66f82c85d87c7d2db52cd8a553e1867b1",
+    "VERSION": "e9dd8507f4bf0c6f42458e41aea833ad0bd3f6127272335eee9bf4d58541ed67",
+    "docs/codebase-foundation-audits.md": "065eb0c121920eff51d0526cf06c20d913218112e40a3545ba5ba11cf7eabfda",
+    "docs/codebase-foundation-report.md": "bb9dfd39f3ba1435a822763a3fde981cfede0aa8f4aaa546eadd95a61e533d6c",
+    "docs/codebase-foundation-research.md": "d74d3a83bbc0496d396fc3a6cffe1d444caf706d852402932964f4f751414e89",
+    "pyproject.toml": "fa279c131bb6450ab18d519dfc677a220c59d56cc67a62d60f71f358342f9e34",
+    "requirements-dev.txt": "6e5e140815a176c1704fe5d0bedf4365b26726817075137ed2a6750f98e4ed80",
+    "scripts/foundation.py": "b6dc8f41da045f83e5974e26953453667da5effb03419bf39738a0d79821085a",
+    "shell.nix": "bce2b9ee69ac184435983a890db8c1ef3009b63918fe2d4c8e269762c5225847",
+    "skills/codebase-foundation/SKILL.md": "05f03a97ac247336bca1c87fdfe28c0e2864da5b4b58ac21a455b4230a6c9cc7",
+    "skills/codebase-foundation/baseline/.github/workflows/check.yml": "7133bc30531c8cebb7249ab27b2ed27380d3491836f714ec69d2fda552b8828b",
+    "skills/codebase-foundation/baseline/.gitignore": "d044edb843491e7a86190a0c59a80f6c26f04d6d58c758244f82a0683dd693e5",
+    "skills/codebase-foundation/baseline/AGENTS.md": "e14ae67ec49f49e0319bd61ffd1010d8ea31215e3dd2f8ebfa34bfc25a515351",
+    "skills/codebase-foundation/baseline/CHANGELOG.md": "4b3d706d148b6f36624bae8120d4cac4c0ac8984d07e442b54d5ffa982340cc9",
+    "skills/codebase-foundation/baseline/Cargo.lock": "ece5760d5f27f7dad3eaeb92b6275c08e8bccbacf3b883cf0d8d3f6b6c171180",
+    "skills/codebase-foundation/baseline/Cargo.toml": "3bc700d08ff860297922b9b4537dc5154ed12c8f6cc062167698c38278b93d52",
+    "skills/codebase-foundation/baseline/LICENSE": "731eadf382548f04fa5be4cc059825ed6354db7482986100155d038e8492634d",
+    "skills/codebase-foundation/baseline/Makefile": "989b58bec536249841f91e81e488c9062b5b83374c37db68a52bd9a19ce9f7b3",
+    "skills/codebase-foundation/baseline/README.md": "a15ec8cbcbe6d8d1cd7632f9a49117758d60ef8ccb2658a3cfeb146bcc7f1db4",
+    "skills/codebase-foundation/baseline/RELEASE.md": "d1b5732e79c65eccfd9fbeeb304c82e2ddfc84e092ad1e625e45743aa2bafb27",
+    "skills/codebase-foundation/baseline/scripts/release.py": "42e4058543f610c52c69adf081a46171f09cb0bbd50a8659e5d357930031d693",
+    "skills/codebase-foundation/baseline/shell.nix": "9289df9350a75b5fdbf9e61d0b08ae2cc5c0c8b330c27acca262307f9f8e3392",
+    "skills/codebase-foundation/baseline/src/lib.rs": "3756ee8e2d48ca2e40210c83692536c1f4ca9e0fb926dd4eda7ca4ef9fce7ff0",
+    "skills/codebase-foundation/baseline/src/main.rs": "0a564fc028c26d429483ee07135921571b32d8bd4442b42e37660b10cc8ed508",
+    "skills/codebase-foundation/baseline/tests/cli.rs": "7d15ef65f4a7be67bd7de11e55d1dd0d59ed34369f2a7340b7a12a206e16da9e",
+    "skills/codebase-foundation/references/adaptation.md": "953a306d8eed4893913689bfc65c8139032558e0e544e67f8b85549dc3eb4457",
+    "skills/codebase-foundation/references/assessment.md": "2f1c6c9fd0507ff4ef25bd663301f172ca0f523c0dde441687c5457fef84263a",
+    "skills/codebase-foundation/references/contract.md": "badc699346321568c574bc1c3b8a5110f6de0365f336b0d9f8a0f5a5c4be2e6b",
+    "skills/codebase-foundation/references/makefile.md": "456b7c073f0f532b14dd82277ac689ead54594022bebdb094da865cc5b0a25a1",
+    "skills/codebase-foundation/references/release-management.md": "c161321309f8e811f2f39ba8ba433878566687bfae8a1694b7c0121482bc3ce8",
+    "skills/codebase-foundation/verify/README.md": "65d45d04ea314a224305f286295c80548303140554c883467722e459c0f137d1",
+    "skills/codebase-foundation/verify/run.py": "9c73f48f5a3b03bc269555e5b4791c18c1201af39feac7c9f7d207fea5d04cb9",
+    "tests/test_foundation.py": "7e6fe7d980daae13f463fd33a099bcfea19f371082dc23cda59727ea09ea16a3"
+  }
+}

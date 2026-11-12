@@ -1,0 +1,22 @@
+[
+  {
+    "control": "noop_tests",
+    "expected": "FAIL",
+    "observed": "FAIL"
+  },
+  {
+    "control": "swallowed_failure",
+    "expected": "FAIL",
+    "observed": "FAIL"
+  },
+  {
+    "control": "unchecked_release",
+    "expected": "FAIL",
+    "observed": "FAIL"
+  },
+  {
+    "control": "undeclared_tool",
+    "expected": "FAIL",
+    "observed": "FAIL"
+  }
+]
